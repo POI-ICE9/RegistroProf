@@ -1,0 +1,370 @@
+--- instance/registro.db (原始)
+
+
++++ instance/registro.db (修改后)
+andreapbkdf2:sha256:1000000$gvLoABNhVq2PD5aN$370bc30e5f299be0ad64236db7de3887f45ba56659e6974f298e9fcb192eb9b4andrea@placeholder.localadminattivoattivo2026-09-14 14:38:28.662400tasi@placeholder.localuserattivoattivo2026-02-27 19:03:04.000000A[9
+Caanastasi@placeholder.local9test@placeholder.local     andrea@placeholder.local
+aanastastest            andrea
+
+
+
+v
+AStefano NicotraDatabase Management e Tecnologie InformatichePaolo Borsa Monza"[]"2026-09-14 14:38:28.787816
+
+
+F$F[    cAAUcL-bZcJYcvYrZ9b0K-ksEhiyWTHSoNej74Cu3bpgXXAandrea127.0.0.12026-04-17 14:34:52.0000002026-04-17 14:34:52.000000Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 SaY cAAUzuqBs5dCPyOJ1hVZy6OUHtbpMXGm2ygUnCognLaXydEtest127.0.0.12026-04-16 15:20:56.0000002026-04-16 15:20:56.000000Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Sa
+
+andrea  test
+n-n<-bZcJYcvYrZ9b0K-ksEhiyWTHSoNej74Cu3bpgXXA.c zuqBs5dCPyOJ1hVZy6OUHtbpMXGm2ygUnCognLaXydE
+Aprovapbkdf2:sha256:1000000$q21kWy772H8TvCee$3da7893476195a1f03201b30cb060a62be0024f8be379f9d929592289fd1d930aanastasi@scuola-borsa.ittesttestin_attesa2026-04-17 09:27:53.000000P
+Atestandreapbkdf2:sha256:1000000$FdKnvK0X6FG3PJqT$f71242a9b8f4bb8e8a672617615fb882e690f616b66365f29c2dc9adfaeba037aanastasi@scuola-borsa.itprova andreaborsa monzain_attesa2026-04-11 12:10:18.000000
+N       testandrea
+#-AtestProblemaEsempio problemamediaaperto2026-04-16 15:21:13.000000[]
+
+
+ }
+                ODT     x77tableregistration_requestsregistration_requestsCREATE TABLE registration_requests (
+        id INTEGER NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        password VARCHAR(200) NOT NULL,
+        email VARCHAR(120),
+        nome_cognome VARCHAR(150),
+        scuola VARCHAR(150),
+        stato VARCHAR(20),
+        admin_note TEXT,
+        data_registrazione DATETIME,
+        data_approvazione DATETIME,
+        PRIMARY KEY (id)
+)n9indexix_sessions_session_idsessionsCREATE UNIQUE INDEX ix_sessions_session_id ON sessions (session_id)`5}indexix_sessions_usernamesessionsCREATE INDEX ix_sessions_username ON sessions (username)WtablesessionssessionsCREATE TABLE sessions (
+        id INTEGER NOT NULL,
+        session_id VARCHAR(100) NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        ip VARCHAR(50),
+        login_time DATETIME,
+        last_activity DATETIME,
+        user_agent VARCHAR(200),
+        PRIMARY KEY (id)
+)_/indexix_role_defs_nomerole_defsCREATE UNIQUE INDEX ix_role_defs_nome ON role_defs (nome)wtablerole_defsrole_defsCREATE TABLE role_defs (
+        id INTEGER NOT NULL,
+        nome VARCHAR(40) NOT NULL,
+        is_system BOOLEAN,
+        PRIMARY KEY (id)
+ableschoolsschoolsCREATE TABLE schools (QUE INDEX ix_schools_nome ON schools (nome)+
+        id INTEGER NOT NULL,
+        nome VARCHAR(180) NOT NULL,
+        created_by VARCHAR(80),
+        created_at DATETIME,
+        PRIMARY KEY (id)
+)[
+CREATE UNIQUE INDEX ix_subjects_nome ON subjects (nome).
+                                                        /tablesubjectssubjects
+                                                                              CREATE TABLE subjects (
+        id INTEGER NOT NULL,
+        nome VARCHAR(120) NOT NULL,
+        created_by VARCHAR(80),
+        created_at DATETIME,
+        PRIMARY KEY (id)
+)D
+!!Stableprofessorsprofessors
+                            CREATE TABLE professors (
+        id INTEGER NOT NULL,
+        nome VARCHAR(100) NOT NULL,
+        materia VARCHAR(100),
+        scuola VARCHAR(150),
+        istituto VARCHAR(180),
+        descrizione TEXT,
+        profilo_pubblico BOOLEAN,
+        avatar_file VARCHAR(260),
+        materie_extra JSON,
+        created_at DATETIME,
+        PRIMARY KEY (id)
+)i      ;       ndexix_reviews_professor_idreviews
+CREATE INDEX ix_reviews_professor_id ON reviews (professor_id)3indexix_reviews_usernamereviews  CREATE INDEX ix_reviews_username ON reviews (username)jablereviewsreviewCREATE TABLE reviews (
+        id INTEGER NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        "nomeProfRec" VARCHAR(100),
+        scuola VARCHAR(150),
+        recensione TEXT,
+        likes INTEGER,
+        dislikes INTEGER,
+        user_likes JSON,
+        user_dislikes JSON,
+        commenti JSON,
+        timestamp DATETIME,
+        is_anonymous BOOLEAN,
+        professor_id INTEGER,
+        PRIMARY KEY (id)
+)T/qindexix_votes_usernamevotesCREATE INDEX ix_votes_username ON votes (username)tGtablevotesvotesCREATE TABLE votes (
+        id INTEGER NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        voto VARCHAR(10) NOT NULL,
+        "nomeProf" VARCHAR(100),
+        materia VARCHAR(100),
+        scuola VARCHAR(150),
+        timestamp DATETIME,
+        PRIMARY KEY (id)
+)W1uindexix_users_oauth_subusersCREATE INDEX ix_users_oauth_sub ON users (oauth_sub)[/indexix_users_usernameusersCREATE UNIQUE INDEX ix_users_username ON users (username)JstableusersusersCREATE TABLE users (
+        id INTEGER NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        password VARCHAR(200) NOT NULL,
+        email VARCHAR(120),
+        nome_cognome VARCHAR(150),
+        scuola VARCHAR(150),
+        role VARCHAR(20),
+        stato VARCHAR(20),
+        account_status VARCHAR(20),
+        telefono VARCHAR(30),
+        data_nascita VARCHAR(20),
+        indirizzo VARCHAR(200),
+        citta VARCHAR(100),
+        cap VARCHAR(10),
+        admin_note TEXT,
+        created_at DATETIME,
+        avatar_preset INTEGER,
+        avatar_file VARCHAR(260),
+        oauth_provider VARCHAR(40),
+        oauth_sub VARCHAR(120),
+        PRIMARY KEY (id),
+        UNIQUE (email)
+I)=indexsqlite_autoindex_users_1users
+ W
+
+                aY#K}$C+indexix_login_histories_usernamelogin_histories'CREATE INDEX ix_login_histories_username ON login_histories (username)i#++      tablelogin_historieslogin_histories&CREATE TABLE login_histories (
+        id INTEGER NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        ip VARCHAR(60),
+        user_agent VARCHAR(200),
+        tipo VARCHAR(20),
+        quando DATETIME,
+        PRIMARY KEY (id)
+)O71indexix_registration_requests_usernameregistration_requestsCREATE INDEX ix_registration_requests_username ON registration_requests (username)("U=Kindexix_notification_preferences_usernamenotification_preferences%CREATE UNIQUE INDEX ix_notification_preferences_username ON notification_preferences (username)!==tablenotification_preferencesnotification_preferences$CREATE TABLE notification_preferences (
+        id INTEGER NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        canale_in_app BOOLEAN,
+        canale_email BOOLEAN,
+        tipi JSON,
+        updated_at DATETIME,
+        PRIMARY KEY (id)
+) E-indexix_privacy_requests_usernameprivacy_requests#CREATE INDEX ix_privacy_requests_username ON privacy_requests (username)--;tableprivacy_requestsprivacy_requests"CREATE TABLE privacy_requests (
+        id INTEGER NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        motivo TEXT,
+        stato VARCHAR(20),
+        data_richiesta DATETIME,
+        data_chiusura DATETIME,
+        admin_note TEXT,
+        PRIMARY KEY (id)
+)#!!tableaudit_logsaudit_logs!CREATE TABLE audit_logs (
+        id INTEGER NOT NULL,
+        azione VARCHAR(100) NOT NULL,
+        esito VARCHAR(20),
+        attore VARCHAR(80) NOT NULL,
+        target VARCHAR(80),
+        ip VARCHAR(50),
+        user_agent VARCHAR(200),
+        dettagli JSON,
+        timestamp DATETIME,
+        PRIMARY KEY (id)
+)G/!indexix_password_recovery_usernamepassword_recovery CREATE INDEX ix_password_recovery_username ON password_recovery (username)//Qtablepassword_recoverypassword_recoveryCREATE TABLE password_recovery (
+        id INTEGER NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        codice VARCHAR(10) NOT NULL,
+        data_richiesta DATETIME,
+        expires_at DATETIME,
+        attempts INTEGER,
+        usato BOOLEAN,
+        PRIMARY KEY (id)
+)o'     indexix_notifications_utentenotificationsCREATE INDEX ix_notifications_utente ON notifications (utente)5'')tablenotificationsnotificationsCREATE TABLE notifications (
+        id INTEGER NOT NULL,
+        utente VARCHAR(80) NOT NULL,
+        tipo VARCHAR(50) NOT NULL,
+        titolo VARCHAR(200) NOT NULL,
+        messaggio TEXT NOT NULL,
+        link VARCHAR(200),
+        letta BOOLEAN,
+        data DATETIME,
+        data_lettura DATETIME,
+        PRIMARY KEY (id)
+)otablenoticesnoticesCREATE TABLE notices (
+        id INTEGER NOT NULL,
+        titolo VARCHAR(200) NOT NULL,
+        contenuto TEXT NOT NULL,
+        attivo BOOLEAN,
+        priority VARCHAR(20),
+        created_at DATETIME,
+        expires_at DATETIME,
+        PRIMARY KEY (id)
+)tablereportsreportsREATE TABLE reports (
+        id INTEGER NOT NULL,
+        tipo VARCHAR(50) NOT NULL,
+        indice INTEGER,
+        motivo TEXT,
+        segnalatore VARCHAR(80) NOT NULL,
+        stato VARCHAR(20),
+        admin_note TEXT,
+        data DATETIME,
+        data_chiusura DATETIME,
+        PRIMARY KEY (id)
+)V/indexix_tickets_utenteticketsCREATE INDEX ix_tickets_utente ON tickets (utente)HtableticketsticketsCREATE TABLE tickets (
+        id INTEGER NOT NULL,
+        utente VARCHAR(80) NOT NULL,
+        oggetto VARCHAR(200) NOT NULL,
+        messaggio TEXT NOT NULL,
+        priorita VARCHAR(20),
+        stato VARCHAR(20),
+        data_apertura DATETIME,
+        data_chiusura DATETIME,
+        admin_assegnato VARCHAR(80),
+        risposte JSON,
+        PRIMARY KEY (id)
+)
+}S      test
+
+
+ n
+
+L              -y
+5]Aandreaticket🎫 Nuovo Ticket #1test ha creato un nuovo ticket: Problema/admin#ticket2026-04-16 15:21:13.000000y
+
+5]Aandreaticket🎫 Nuovo Ticket #1test ha creato un nuovo ticket: problema/admin#ticket2026-04-13 10:26:11.000000
+
+5wAandreaticket🎫 Nuovo Ticket #1test ha creato un nuovo ticket: Malfunzionamento sito/admin#ticket2026-04-11 12:11:45.000000
+
+%;S3    AAandreasegnalazione🚩 Nuova Segnalazioneaanastasi ha segnalato un contenuto/admin#segnalazioni2026-03-24 17:29:34.0000002026-04-06 14:19:43.000000
+
+'CAprovaregistrazione✅ Registrazione approvataIl tuo account è stato approvato! Ora puoi accedere./login2026-02-28 12:25:26.000000
+S       AAtestsistema⚙️ Stato account aggiornatoIl tuo account è stato riattivato./user2026-02-28 11:51:06.0000002026-04-07 14:34:50.000000
+q       AAtestsistema⚙️ Stato account aggiornatoIl tuo account è stato sospeso. Contatta l'admin./login2026-02-28 11:50:42.0000002026-02-28 12:26:15.0000003
+
+5g'     AAandreaticket🎫 Nuovo Ticket #1aanastasi ha creato un nuovo ticket: Problema/admin#ticket2026-02-28 10:10:36.0000002026-02-28 10:16:44.000000*
+Es3     AAtestticketNuova risposta al tuo ticketL'admin andrea ha risposto al ticket #1: Buongiorno/user#ticketSection2026-02-27 10:40:58.0000002026-02-27 16:22:07.000000
+zz
+andrea
+andrea
+
+andrea
+
+andrea
+        prova  tetestestest
+aanastasi
+andrea  test
+?>
+
+
+
+?A
+
+  >
+6K3)indexix_professor_favorites_usernameprofessor_favorites:CREATE INDEX ix_professor_favorites_username ON professor_favorites (username)B433+tableprofessor_favoritesprofessor_favorites8CREATE TABLE professor_favorites (
+        id INTEGER NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        professor_id INTEGER,
+        chiave_prof VARCHAR(260) NOT NULL,
+        professore_etichetta VARCHAR(220),
+        PRIMARY KEY (id),
+        CONSTRAINT uq_user_prof_pref UNIQUE (username, chiave_prof)
+)E5Y3indexsqlite_autoindex_professor_favorites_1professor_favorites9&2%%tableuser_followsuser_follows6CREATE TABLE user_follows (
+        follower VARCHAR(80) NOT NULL,
+        followed VARCHAR(80) NOT NULL,
+        PRIMARY KEY (follower, followed)
+)73K%indexsqlite_autoindex_user_follows_1user_follows7
+                                                      h13#indexix_user_groups_sluguser_groups5CREATE UNIQUE INDEX ix_user_groups_slug ON user_groups (slug)0##Ktableuser_groupsuser_groups4CREATE TABLE user_groups (
+        id INTEGER NOT NULL,
+        nome VARCHAR(120) NOT NULL,
+        slug VARCHAR(130),
+        scuola VARCHAR(150) NOT NULL,
+        creator VARCHAR(80) NOT NULL,
+        descrizione TEXT,
+        quando DATETIME,
+        PRIMARY KEY (id)
+)m/;#   indexix_exam_events_group_idexam_events3CREATE INDEX ix_exam_events_group_id ON exam_events (group_id)g.7#indexix_exam_events_scuolaexam_events2CREATE INDEX ix_exam_events_scuola ON exam_events (scuola)-##tableexam_eventsexam_events1CREATE TABLE exam_events (
+        id INTEGER NOT NULL,
+        scuola VARCHAR(150) NOT NULL,
+        group_id INTEGER,
+        materia VARCHAR(100),
+        titolo VARCHAR(200) NOT NULL,
+        note TEXT,
+        quando DATETIME NOT NULL,
+        creato_da VARCHAR(80) NOT NULL,
+        PRIMARY KEY (id)
+),I+%indexix_study_materials_caricato_dastudy_materials0CREATE INDEX ix_study_materials_caricato_da ON study_materials (caricato_da)    +K+)indexix_study_materials_professor_idstudy_materials/CREATE INDEX ix_study_materials_professor_id ON study_materials (professor_id)w*?+indexix_study_materials_scuolastudy_materials.CREATE INDEX ix_study_materials_scuola ON study_materials (scuola)t)++tablestudy_materialsstudy_materials,CREATE TABLE study_materials (
+        id INTEGER NOT NULL,
+        professor_id INTEGER,
+        professore_nome VARCHAR(120),
+        materia VARCHAR(100),
+        scuola VARCHAR(150),
+        titolo VARCHAR(200),
+        nome_file_sicuro VARCHAR(260),
+        caricato_da VARCHAR(80) NOT NULL,
+        mime VARCHAR(80),
+        dimensione INTEGER,
+        quando DATETIME,
+        PRIMARY KEY (id)
+)X(--ctableticket_templatesticket_templates+CREATE TABLE ticket_templates (
+        id INTEGER NOT NULL,
+        nome VARCHAR(120) NOT NULL,
+        oggetto VARCHAR(200),
+        corpo TEXT NOT NULL,
+        tipo VARCHAR(40),
+        PRIMARY KEY (id)
+)+'##tablesite_bannersite_banner*CREATE TABLE site_banner (
+        id INTEGER NOT NULL,
+        attivo BOOLEAN,
+        messaggio VARCHAR(600),
+        aggiornato DATETIME,
+        PRIMARY KEY (id)
+)]&-!{indexix_banned_ips_ipbanned_ips)CREATE UNIQUE INDEX ix_banned_ips_ip ON banned_ips (ip)>%!!Gtablebanned_ipsbanned_ips(CREATE TABLE banned_ips (
+        id INTEGER NOT NULL,
+        ip VARCHAR(60) NOT NULL,
+        motivo TEXT,
+        creato_il DATETIME,
+        banned_by VARCHAR(80),
+        PRIMARY KEY (id)
+)o8''tablegroup_membersgroup_members<CREATE TABLE group_members (
+        group_id INTEGER NOT NULL,
+        username VARCHAR(80) NOT NULL,
+        ruolo VARCHAR(20),
+        PRIMARY KEY (group_id, username),
+        FOREIGN KEY(group_id) REFERENCES user_groups (id)
+)99M'indexsqlite_autoindex_group_members_1group_members=7S39indexix_professor_favorites_professor_idprofessor_favorites;CREATE INDEX ix_professor_favorites_professor_id ON professor_favorites (professor_id)
+
+
+
+
+
+
+
+
+
+
+C
+S
+
+
+        4wDT:
+             'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-17 10:04:48.000000:
+                                                                                                                                                                                                'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-17 09:29:32.000000:
+                                                                                                                                                                                                                                                                                                                                                                                   'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-17 09:26:32.0000006
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      'kAlogin_successoktesttest127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-16 15:20:56.000000:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-16 15:20:37.000000:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-16 14:35:43.0000006
+                                                                                   'kAlogin_successoktesttest127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-16 14:35:18.000000:
+                                                                                                                                                                                                                                                                  'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-16 14:34:38.000000:
+'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-13 10:28:49.0000006
+
+                                                                                                                                                                                   'kAlogin_successoktesttest127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-13 10:25:52.000000:
+
+                                                                                                                                                                                                                                                                                                                                                                  'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-13 10:25:11.000000:
+
+'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36{}2026-04-11 12:11:54.0000006
+                                                                                                                                                                                        'kAlogin_successoktesttest127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36{}2026-04-11 12:11:13.000000:
+                                                                                                                                                                                                                                                                                                                                                                      'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36{}2026-04-11 12:10:28.000000:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36{}2026-04-11 12:09:11.0000006
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            'kAlogin_successoktesttest127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36{}2026-04-07 14:32:48.000000:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36{}2026-04-07 14:31:57.000000:
+                                                                      'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36{}2026-04-06 14:42:58.000000:
+                                                                                                                                                                                                                                                         'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36{}2026-04-06 14:20:33.0000006
+                                                                                                                                                                                                                                                                                                                                                                                                                                            'kAlogin_successoktesttest127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36{}2026-04-06 14:19:54.000000:
+C:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36{}2026-04-06 14:19:22.000000
+  'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-17 14:34:52.000000:
+                                                                                                                                                                                     'kAlogin_successokandreaandrea127.0.0.1Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36{}2026-04-17 14:34:40.000000
