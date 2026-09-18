@@ -1,0 +1,3 @@
+Backup del: 2026-09-18 09:25:53
+Database originale: /workspace/instance/registro.db
+Dimensione: 258048 bytes

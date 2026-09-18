@@ -1,8 +1,31 @@
-# .gitignore
+```
+# Python
 __pycache__/
 *.pyc
-.env
-*.db
-registro/*.json
+*.pyo
+*.pyd
+
+# Database
+instance/registro.db
+
+# Dependencies
+.venv/
 venv/
-.DS_Store
+env/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment variables
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Backup and migration scripts (if they contain sensitive data)
+scripts/backup_db.py
+```
