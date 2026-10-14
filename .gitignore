@@ -29,3 +29,4 @@ env/
 # Backup and migration scripts (if they contain sensitive data)
 scripts/backup_db.py
 ```
+.env
