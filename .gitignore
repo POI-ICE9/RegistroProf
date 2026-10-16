@@ -2,7 +2,10 @@
 # .gitignore
 __pycache__/
 *.pyc
+# Variabili d'ambiente e segreti
 .env
+.env.*
+
 *.db
 registro/*.json
 venv/
